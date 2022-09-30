@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Popup Box</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        font-family: "poppins", sans-serif;
+      }
+      body {
+        background-image: url(Modal.png);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        margin: 0;
+        height: 100vw;
+      }
+
+      .container {
+        background-color: white;
+        width: 43%;
+        height: 18vw;
+        position: relative;
+        bottom: 400px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        border-radius: 10px;
+      }
+      #open {
+        background-color: rgb(0, 251, 255);
+        width: 30%;
+        height: 25px;
+        border-radius: 10px;
+        color: white;
+      }
+      .modal-container {
+        background-color: rgba(0, 0, 0 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        pointer-events: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vw;
+        opacity: 0;
+      }
+      .modal-container.show {
+        pointer-events: auto;
+        opacity: 1;
+        cursor: grabbing;
+      }
+      .modal {
+        background-color: rgb(232, 226, 226);
+        width: 43%;
+        height: 17vw;
+        bottom: 400px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        border-radius: 10px;
+      }
+      #close {
+        background-color: rgb(232, 226, 226);
+        font-size: 40px;
+        font-family: "poppins", sans-serif;
+        font-weight: 900;
+        color: red;
+        position: relative;
+        bottom: 100px;
+        left: 200px;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Modal Project</h1>
+      <button id="open">OPEN MODAL</button>
+    </div>
+    <div class="modal-container" id="modalcontainer">
+      <div class="modal">
+        <h1>Modal Content</h1>
+        <button id="close">x</button>
+      </div>
+    </div>
+
+    <script>
+      const openBtn = document.getElementById("open");
+      const modalContainer = document.getElementById("modalcontainer");
+      const closeBtn = document.getElementById("close");
+
+      openBtn.addEventListener("click", () => {
+        modalContainer.classList.add("show");
+      });
+
+      closeBtn.addEventListener("click", () => {
+        modalContainer.classList.remove("show");
+      });
+    </script>
+  </body>
+</html>

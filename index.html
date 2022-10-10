@@ -11,10 +11,7 @@
         font-family: "poppins", sans-serif;
       }
       body {
-        background-image: url(Modal.png);
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-size: cover;
+        background-color: bisque;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -44,7 +41,7 @@
         color: white;
       }
       .modal-container {
-        background-color: rgba(0, 0, 0 0.2);
+        background-color: rgba(20, 40, 60 0.2);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -63,8 +60,8 @@
       }
       .modal {
         background-color: rgb(232, 226, 226);
-        width: 43%;
-        height: 17vw;
+        width: 41%;
+        height: 15vw;
         bottom: 400px;
         position: relative;
         display: flex;
@@ -80,8 +77,8 @@
         font-weight: 900;
         color: red;
         position: relative;
-        bottom: 100px;
-        left: 200px;
+        bottom: 80px;
+        left: 160px;
         border: none;
       }
     </style>
@@ -105,11 +102,18 @@
 
       openBtn.addEventListener("click", () => {
         modalContainer.classList.add("show");
+        modalContainer.style.backgroundColor = "rgba(0,0,0,0.5)";
       });
 
       closeBtn.addEventListener("click", () => {
         modalContainer.classList.remove("show");
       });
+
+      modalContainer.onclick = function (event) {
+        if (event.target == modalContainer) {
+          modalContainer.style.display = "none";
+        }
+      };
     </script>
   </body>
 </html>
